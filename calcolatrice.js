@@ -4,6 +4,8 @@ class Calcolatrice {
     // Questo elemento sarà utilizzato per mostrare i numeri e i risultati della calcolatrice
     this.displayElement = document.getElementById('display');
 
+    this.clear();
+
     // Variabili per memorizzare l'ultimo operando inserito, l'ultima operazione eseguita
     // e il risultato corrente
     this.lastOperand = '';
@@ -25,7 +27,19 @@ class Calcolatrice {
       / (this.defaultDisplayElementFontSize * 0.6)  // Stima della larghezza di un carattere
     );
   }
+
+  clear() {
+    this.currentOperand = '0';
+    this.previousOperand = '';
+    this.operation = undefined;
+  }
+
 }
 
 // Crea una nuova istanza della classe Calcolatrice e la memorizza nella variabile calcolatrice
 const calcolatrice = new Calcolatrice();
+
+
+document.getElementById('clear').addEventListener('click', () => {
+  calcolatrice.clear();
+})
